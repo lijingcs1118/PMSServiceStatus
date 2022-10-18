@@ -1,0 +1,12 @@
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\bin\Debug\MakarovDev.ExpandCollapsePanel.dll
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\bin\Debug\MakarovDev.ExpandCollapsePanel.pdb
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\ExpandCollapsePanel.AdvancedFlowLayoutPanel.resources
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\ExpandCollapsePanel.ExpandCollapseButton.resources
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\ExpandCollapsePanel.ExpandCollapsePanel.resources
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\MakarovDev.ExpandCollapsePanel.Properties.Resources.resources
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\ExpandCollapsePanel.csproj.GenerateResource.Cache
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\MakarovDev.ExpandCollapsePanel.dll
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\MakarovDev.ExpandCollapsePanel.pdb
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\MakarovDev.ExpandCollapsePanel.AdvancedFlowLayoutPanel.resources
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\MakarovDev.ExpandCollapsePanel.ExpandCollapseButton.resources
+C:\Users\19065\OneDrive\TryCode\CollapsePanel\MakarovDev.ExpandCollapsePanel\obj\Debug\MakarovDev.ExpandCollapsePanel.ExpandCollapsePanel.resources

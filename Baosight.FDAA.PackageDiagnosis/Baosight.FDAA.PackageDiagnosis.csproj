@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{439AB99B-6998-486C-B70E-32E32A7E6A77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Baosight.FDAA.PackageDiagnosis</RootNamespace>
+    <AssemblyName>Baosight.FDAA.PackageDiagnosis</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=6.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="iHDCSharpSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\iHDCSharpSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Utility">
+      <HintPath>..\..\bin\Utility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\HdManager.cs" />
+    <Compile Include="BLL\Packages\Arti3Package.cs" />
+    <Compile Include="BLL\Packages\BoardCardWithDataReceivedPackage.cs" />
+    <Compile Include="BLL\Packages\DataStorageBasePackage.cs" />
+    <Compile Include="BLL\Packages\GenericPackageWithBoardCard.cs" />
+    <Compile Include="BLL\Packages\GenericPackageWithFau.cs" />
+    <Compile Include="BLL\Packages\IInstallation.cs" />
+    <Compile Include="BLL\Packages\ILicense.cs" />
+    <Compile Include="BLL\Packages\MqttDataStoragePackage.cs" />
+    <Compile Include="BLL\Packages\PlaybackPackage.cs" />
+    <Compile Include="BLL\Packages\S7DpRequestPackage.cs" />
+    <Compile Include="BLL\Packages\TechnostringPackage.cs" />
+    <Compile Include="BLL\Packages\VideoCapturePackage.cs" />
+    <Compile Include="BLL\Packages\VirtualPackage.cs" />
+    <Compile Include="BLL\UdpProcessor.cs" />
+    <Compile Include="Model\Attributes\AttributeHelper.cs" />
+    <Compile Include="Model\Attributes\ChineseAttribute.cs" />
+    <Compile Include="Model\Attributes\DetailAttribute .cs" />
+    <Compile Include="Model\Attributes\EnglishAttribute.cs" />
+    <Compile Include="Model\Attributes\RecommendedMeasuresAttribute.cs" />
+    <Compile Include="DAL\Configs\FdaaOnlineConfig.cs" />
+    <Compile Include="Model\Entities\CodeInfo.cs" />
+    <Compile Include="Model\Entities\Driver.cs" />
+    <Compile Include="Model\Entities\S7Status.cs" />
+    <Compile Include="Model\Entities\Telegram.cs" />
+    <Compile Include="Model\Enums\InstallationInfo.cs" />
+    <Compile Include="Model\Enums\LicenseInfo.cs" />
+    <Compile Include="Model\Enums\ModuleType.cs" />
+    <Compile Include="Model\Enums\NetwordByteOrder.cs" />
+    <Compile Include="Model\Enums\Package.cs" />
+    <Compile Include="Model\Enums\ServiceStatus.cs" />
+    <Compile Include="Model\Modules\ModuleWithFau.cs" />
+    <Compile Include="BLL\Packages\FdaaOnlinePackage.cs" />
+    <Compile Include="BLL\Packages\OpcPackage.cs" />
+    <Compile Include="Model\Modules\UDPMulticastModule.cs" />
+    <Compile Include="ProgramModule.cs" />
+    <Compile Include="DAL\Configs\AdvancedDsConfig.cs" />
+    <Compile Include="DAL\Configs\BasicDsConfig.cs" />
+    <Compile Include="DAL\Configs\HdDsConfig.cs" />
+    <Compile Include="DAL\Configs\Helper.cs" />
+    <Compile Include="DAL\Configs\IOConfig.cs" />
+    <Compile Include="DAL\Configs\MqttDsConfig.cs" />
+    <Compile Include="DAL\Configs\ServerConfig.cs" />
+    <Compile Include="Model\Constant\Constants.cs" />
+    <Compile Include="BLL\DiagnosticHelper.cs" />
+    <Compile Include="Model\Enums\DiagnosticStatus.cs" />
+    <Compile Include="Model\DsEntity\DsObject.cs" />
+    <Compile Include="Model\DsEntity\HDObject.cs" />
+    <Compile Include="Model\DsEntity\HDServer.cs" />
+    <Compile Include="Model\DsEntity\Schema.cs" />
+    <Compile Include="BLL\FdaaHelper.cs" />
+    <Compile Include="BLL\MachineHelper.cs" />
+    <Compile Include="Model\Modules\ARTI3Module.cs" />
+    <Compile Include="Model\Modules\BaseModule.cs" />
+    <Compile Include="Model\Modules\CPNetModule.cs" />
+    <Compile Include="Model\Modules\DPLiteModule.cs" />
+    <Compile Include="Model\Modules\FAUDevice.cs" />
+    <Compile Include="Model\Modules\FAUDeviceManager.cs" />
+    <Compile Include="Model\Modules\FDAAModule.cs" />
+    <Compile Include="Model\Modules\FDAAPMSService.cs" />
+    <Compile Include="Model\Modules\FDAAPMSServiceManager.cs" />
+    <Compile Include="Model\Modules\MELSECModule.cs" />
+    <Compile Include="Model\Modules\NisdasModule.cs" />
+    <Compile Include="Model\Modules\OPCClientModule.cs" />
+    <Compile Include="Model\Modules\PlaybackModule.cs" />
+    <Compile Include="Model\Modules\RFM5565Module.cs" />
+    <Compile Include="Model\Modules\S7DpRequestModule.cs" />
+    <Compile Include="Model\Modules\S7PnRequestModule.cs" />
+    <Compile Include="Model\Modules\S7TcpModule.cs" />
+    <Compile Include="Model\Modules\SmeModule.cs" />
+    <Compile Include="Model\Modules\TCNetModule.cs" />
+    <Compile Include="Model\Modules\TechnostringModule.cs" />
+    <Compile Include="Model\Modules\UDPUnicastModule.cs" />
+    <Compile Include="Model\Modules\USigmaModule.cs" />
+    <Compile Include="Model\Modules\VideoCaptureModule.cs" />
+    <Compile Include="Model\Modules\VirtualModule.cs" />
+    <Compile Include="Model\Modules\VirtualTSModule.cs" />
+    <Compile Include="BLL\NetworkHelper.cs" />
+    <Compile Include="PackageManager.cs" />
+    <Compile Include="BLL\Packages\BasePackage.cs" />
+    <Compile Include="BLL\Packages\FdaaPackage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BLL\Packages\HdDataStoragePackage.cs" />
+    <Compile Include="BLL\Packages\IPackage.cs" />
+    <Compile Include="BLL\Packages\PmsPackage.cs" />
+    <Compile Include="BLL\Packages\S7TcpPackage.cs" />
+    <Compile Include="Model\Entities\StatusEventArgs.cs" />
+    <Compile Include="BLL\Packages\UdpPackage.cs" />
+    <Compile Include="DAL\PmsServer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Enums\Code.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="pmsServiceLib">
+      <Guid>{35061FF4-D8D7-43F8-8801-6AF3446AA46E}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

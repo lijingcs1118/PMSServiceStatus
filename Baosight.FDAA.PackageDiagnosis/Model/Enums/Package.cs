@@ -1,0 +1,31 @@
+﻿namespace Baosight.FDAA.PackageDiagnosis.Model.Enums
+{
+    public enum Package
+    {
+        Pms,
+        Udp,
+        Arti3,
+        Opc,
+        DpLite,
+        Rfm,
+        S7Dprequest,
+        S7Pnrequest,
+        S7Tcp,
+        Virtual,
+        Melsec,
+        CpNet,
+        TcNet,
+        Usigma,
+        Nisdas,
+        Sse,
+        VideoCapture,
+        Technostring,
+        Playback,
+        Fdaa,
+        FdaaOnline,
+        BasicDs,
+        AdvancedDs,
+        Hd,
+        Mqtt
+    }
+}

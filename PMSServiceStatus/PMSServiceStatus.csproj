@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F993BA3-EADA-4170-8E25-5EE452257EF9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PMSServiceStatus</RootNamespace>
+    <AssemblyName>PMSServiceStatus</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>PMSServiceStatus.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DevExpress.Data.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DevExpress.Utils.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DevExpress.XtraEditors.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.1, Version=10.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DevExpress.XtraGrid.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Utility, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Utility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutFrm.Designer.cs">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloseFrm.Designer.cs">
+      <DependentUpon>CloseFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Constant.cs" />
+    <Compile Include="DoubleBufferFlowLayoutPanel.cs" />
+    <Compile Include="Exporter.cs" />
+    <Compile Include="ExportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportFrm.Designer.cs">
+      <DependentUpon>ExportFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstallationLicenseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstallationLicenseFrm.Designer.cs">
+      <DependentUpon>InstallationLicenseFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ARTI3Module.cs" />
+    <Compile Include="Modules\BaseModule.cs" />
+    <Compile Include="Modules\CPNetModule.cs" />
+    <Compile Include="Modules\DPLiteModule.cs" />
+    <Compile Include="Modules\FDAAModule.cs" />
+    <Compile Include="Modules\MELSECModule.cs" />
+    <Compile Include="Modules\NisdasModule.cs" />
+    <Compile Include="Modules\OPCClientModule.cs" />
+    <Compile Include="Modules\PlaybackModule.cs" />
+    <Compile Include="Modules\RFM5565Module.cs" />
+    <Compile Include="Modules\S7Module.cs" />
+    <Compile Include="Modules\SmeModule.cs" />
+    <Compile Include="Modules\TCNetModule.cs" />
+    <Compile Include="Modules\TechnostringModule.cs" />
+    <Compile Include="Modules\UDPModule.cs" />
+    <Compile Include="Modules\UDPMulticastModule.cs" />
+    <Compile Include="Modules\USigmaModule.cs" />
+    <Compile Include="Modules\VideoCaptureModule.cs" />
+    <Compile Include="Modules\VirtualModule.cs" />
+    <Compile Include="Modules\VirtualTSModule.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="IOConfig.cs" />
+    <Compile Include="MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrm.Designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizedControl\MyProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomizedControl\MyProgressBar.Designer.cs">
+      <DependentUpon>MyProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PMSServer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgressFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressFrm.Designer.cs">
+      <DependentUpon>ProgressFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomizedControl\ReadOnlyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomizedControl\ScrollingTextEffect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomizedControl\ScrollingTextEffect.Designer.cs">
+      <DependentUpon>ScrollingTextEffect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ServerConfig.cs" />
+    <Compile Include="CustomizedControl\StaffListPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomizedControl\StaffListPanel.Designer.cs">
+      <DependentUpon>StaffListPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrayArea.cs" />
+    <Compile Include="WinMsgHandler.cs" />
+    <EmbeddedResource Include="AboutFrm.resx">
+      <DependentUpon>AboutFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloseFrm.resx">
+      <DependentUpon>CloseFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomizedControl\ReadOnlyTextBox.resx">
+      <DependentUpon>ReadOnlyTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportFrm.resx">
+      <DependentUpon>ExportFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstallationLicenseFrm.resx">
+      <DependentUpon>InstallationLicenseFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomizedControl\MyProgressBar.resx">
+      <DependentUpon>MyProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressFrm.resx">
+      <DependentUpon>ProgressFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomizedControl\ScrollingTextEffect.resx">
+      <DependentUpon>ScrollingTextEffect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomizedControl\StaffListPanel.resx">
+      <DependentUpon>StaffListPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19_aboutServiceStatus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PMSServiceStatus.ico" />
+    <Content Include="Resources\acquisitionStart.ico" />
+    <Content Include="Resources\acquisitionStop.ico" />
+    <None Include="Resources\split_files_16px.png" />
+    <None Include="Resources\merge_files_16px.png" />
+    <Content Include="Resources\tick_box_16px.png" />
+    <None Include="Resources\motherboard.ico" />
+    <None Include="Resources\box_important_64px.png" />
+    <None Include="Resources\icons8_system_report_16.png" />
+    <None Include="Resources\icons8_export_16.png" />
+    <None Include="Resources\ExpandAll.png" />
+    <None Include="Resources\CollapseAll.png" />
+    <Content Include="Resources\circle_16px.png" />
+    <Content Include="Resources\close_window_16px.png" />
+    <Content Include="Resources\serviceStop.ico" />
+    <Content Include="Resources\serviceUnknown.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="pmsServiceLib">
+      <Guid>{35061FF4-D8D7-43F8-8801-6AF3446AA46E}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Baosight.FDAA.PackageDiagnosis\Baosight.FDAA.PackageDiagnosis.csproj">
+      <Project>{439ab99b-6998-486c-b70e-32e32a7e6a77}</Project>
+      <Name>Baosight.FDAA.PackageDiagnosis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MakarovDev.ExpandCollapsePanel\MakarovDev.ExpandCollapsePanel.csproj">
+      <Project>{BE76A6FE-225F-4287-9CA0-231F5AF4CDC1}</Project>
+      <Name>MakarovDev.ExpandCollapsePanel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
