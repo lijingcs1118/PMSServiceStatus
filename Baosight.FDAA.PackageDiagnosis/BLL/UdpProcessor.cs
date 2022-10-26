@@ -63,28 +63,29 @@ namespace Baosight.FDAA.PackageDiagnosis.BLL
         /// <summary>
         ///     检测源地址，目标端口是否可以接收到多播报文
         /// </summary>
-        /// <param name="sourceAddress">多播源IP地址</param>
+        /// <param name="multipleAddress">多播IP地址段</param>
         /// <param name="port">需要检测的本地端口号</param>
+        /// <param name="sourceAddress">源地址</param>
         /// <returns>address port 是否可以接收数据 True可以 False 不可以</returns>
-        public Tuple<Tuple<string, int>, bool> CheckIsReceiveData(string sourceAddress, int port)
+        public Tuple<Tuple<string, int,string>, bool> CheckIsReceiveData(string multipleAddress, int port,string sourceAddress)
         {
             var udpClient = new UdpClient();
             udpClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, 1);
-            udpClient.Client.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), port));
-            udpClient.JoinMulticastGroup(IPAddress.Parse(sourceAddress));
+            udpClient.Client.Bind(new IPEndPoint(IPAddress.Parse(sourceAddress), port));
+            udpClient.JoinMulticastGroup(IPAddress.Parse(multipleAddress));
             udpClient.Client.ReceiveTimeout = 2000;
 
             using (udpClient)
             {
-                var remoteEndPoint = new IPEndPoint(IPAddress.Parse(sourceAddress), port);
+                var remoteEndPoint = new IPEndPoint(IPAddress.Parse(multipleAddress), port);
                 try
                 {
                     udpClient.Receive(ref remoteEndPoint);
-                    return new Tuple<Tuple<string, int>, bool>(new Tuple<string, int>(sourceAddress,port), true);
+                    return new Tuple<Tuple<string, int, string>, bool>(new Tuple<string, int, string>(multipleAddress, port, sourceAddress), true);
                 }
                 catch (Exception e)
                 {
-                    return new Tuple<Tuple<string, int>, bool>(new Tuple<string, int>(sourceAddress, port), false);
+                    return new Tuple<Tuple<string, int, string>, bool>(new Tuple<string, int, string>(multipleAddress, port, sourceAddress), false);
                 }
             }
         }

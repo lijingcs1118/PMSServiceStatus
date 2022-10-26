@@ -22,7 +22,7 @@ namespace PMSServiceStatus
         private void SetLanguage()
         {
             this.Text = ServerConfig.getInstance().Language ? "About PMS Service Status" : "关于 PMS 服务状态";
-            lblPMSServiceStatusVersion.Text = ServerConfig.getInstance().Language ? "PMS Service Status, Version 3.9.1.5094" : "PMS 服务状态，版本 3.9.1.5094";
+            lblPMSServiceStatusVersion.Text = ServerConfig.getInstance().Language ? "PMS Service Status, Version 3.9.2.5355" : "PMS 服务状态，版本 3.9.2.5355";
             lblCopyright.Text = ServerConfig.getInstance().Language ? "Copyright(C) 2003 - 2022 by Baosight Corporation" : "宝信公司版权所有(C) 2003 - 2022";
             lblURL.Text = ServerConfig.getInstance().Language ? "URL：" : "网址：";
             lblMachineCode.Text = ServerConfig.getInstance().Language ? "Machine Code :" : "机器码：";

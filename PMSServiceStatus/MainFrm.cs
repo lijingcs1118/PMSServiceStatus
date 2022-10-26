@@ -3770,7 +3770,8 @@ namespace PMSServiceStatus
                     IOConfig.getInstance().AllModules[moduleNo].MdType == IOConfig.MODULE_TYPE.mtS7TCP400DB ||
                     IOConfig.getInstance().AllModules[moduleNo].MdType == IOConfig.MODULE_TYPE.mtS7TCP400NoneDB ||
                     IOConfig.getInstance().AllModules[moduleNo].MdType == IOConfig.MODULE_TYPE.mtS7PNRequest ||
-                    IOConfig.getInstance().AllModules[moduleNo].MdType == IOConfig.MODULE_TYPE.mtS7DPRequest))
+                    IOConfig.getInstance().AllModules[moduleNo].MdType == IOConfig.MODULE_TYPE.mtS7DPRequest||
+                    IOConfig.getInstance().AllModules[moduleNo].MdType == IOConfig.MODULE_TYPE.mtUDPMulticast))
                     return;
 
                 GridView gv = sender as GridView;

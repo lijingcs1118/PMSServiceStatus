@@ -56,8 +56,8 @@ namespace Baosight.FDAA.PackageDiagnosis.Model.Enums
         [RecommendedMeasures("在IO配置中更换接收端口")]
         UDPInterface_PortBindFailure_Error = 02006,
 
-        [Detail("UDP Interface 多播源地址，目标端口接收不到数据")]
-        [RecommendedMeasures("1.检查pmsService.exe和PMSServiceStatus.exe是否被windows防火墙或第三方安全软件阻挡&2.检查物理网络是否畅通&3.数据源是否将数据发送到FDAA主机的对应端口")]
+        [Detail("UDP Interface 多播模块目标端口未接收到指定数据")]
+        [RecommendedMeasures("1.检查pmsService.exe和PMSServiceStatus.exe是否被windows防火墙或第三方安全软件阻挡&2.检查物理网络是否畅通&3.数据源是否将数据发送到FDAA主机的对应端口&4.数据源IP地址是否和模块的源地址参数一致")]
         UDPInterface_SourceAddressDestinationPortNotReceivedData_Error = 02007,
 
         [Detail("UDP Interface 已安装")] [RecommendedMeasures("")]
