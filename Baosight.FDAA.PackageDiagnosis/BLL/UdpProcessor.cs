@@ -11,7 +11,7 @@ namespace Baosight.FDAA.PackageDiagnosis.BLL
     public class UdpProcessor
     {
         /// <summary>
-        ///     检测本地指定端口是否可以绑定
+        ///     检测本地指定端口是否可以绑定 单播
         /// </summary>
         /// <param name="port">需要检测的本地端口号</param>
         /// <returns>是否可以绑定 True可以 False 不可以</returns>
@@ -24,6 +24,29 @@ namespace Baosight.FDAA.PackageDiagnosis.BLL
                 try
                 {
                     udpClient.Client.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), port));
+                    return new Tuple<int, bool>(port, true);
+                }
+                catch (Exception e)
+                {
+                    return new Tuple<int, bool>(port, false);
+                }
+            }
+        }
+        
+        /// <summary>
+        ///     检测本地指定端口是否可以绑定 多播
+        /// </summary>
+        /// <param name="port">需要检测的本地端口号</param>
+        /// <returns>是否可以绑定 True可以 False 不可以</returns>
+        public Tuple<int, bool> CheckPortBindable(int port,string sourceAddress)
+        {
+            var udpClient = new UdpClient();
+            udpClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, 1);
+            using (udpClient)
+            {
+                try
+                {
+                    udpClient.Client.Bind(new IPEndPoint(IPAddress.Parse(sourceAddress), port));
                     return new Tuple<int, bool>(port, true);
                 }
                 catch (Exception e)

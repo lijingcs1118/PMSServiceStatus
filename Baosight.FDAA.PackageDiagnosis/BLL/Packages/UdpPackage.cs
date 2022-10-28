@@ -239,12 +239,8 @@ namespace Baosight.FDAA.PackageDiagnosis.BLL.Packages
         {
             //  集合是否存在绑定失败的端口 false 不存在 true存在
             var result = false;
-
-            var allPorts = UdpUnicastModules.Select(m => m.Port).Distinct().ToList();
-            var multicastPorts = UdpMulticastModules.Select(m => m.MulticastPort).Distinct().ToList();
-            allPorts.AddRange(multicastPorts);
             //  获取所有端口绑定失败的模块，端口号Dictionary
-            var notBindableModulePort = GetBindFailureModulePort(allPorts, ref result);
+            var notBindableModulePort = GetBindFailureModulePort(UdpUnicastModules,UdpMulticastModules, ref result);
             if (result)
                 return DiagnosticHelper.MakeCodeInfo(Code.UDPInterface_PortBindFailure_Error,
                     string.Join(",", notBindableModulePort));
@@ -255,18 +251,21 @@ namespace Baosight.FDAA.PackageDiagnosis.BLL.Packages
         /// <summary>
         ///     获取绑定失败的Dictionary端口集合 名字格式key moduleNo value port
         /// </summary>
-        /// <param name="modules">UDP模块集合</param>
+        /// <param name="unicastModules">UDP模块集合</param>
         /// <param name="result">模块集合是否存在绑定失败的端口 false 不存在 true存在</param>
         /// <returns></returns>
-        private Dictionary<uint, int> GetBindFailureModulePort(IEnumerable<int> allPorts,
+        private Dictionary<uint, int> GetBindFailureModulePort(ObservableCollection<UDPUnicastModule> unicastModules,ObservableCollection<UDPMulticastModule> multicastModules,
             ref bool result)
         {
             var modulePort = new Dictionary<uint, int>();
             var tasks = new List<Task>();
 
-            foreach (var port in allPorts)
-                //  当前端口是否可以接收数据
+            foreach (var port in unicastModules.Select(m => m.Port).Distinct())
+                //  单播 当前端口是否可以接收数据
                 tasks.Add(Task.Run(() => udpProcessor.CheckPortBindable(port)));
+            foreach (var addressPort in multicastModules.Select(m => new{m.SourceAddress,m.MulticastPort}).Distinct())
+                //  多播 当前端口是否可以接收数据
+                tasks.Add(Task.Run(() => udpProcessor.CheckPortBindable(addressPort.MulticastPort,addressPort.SourceAddress)));
 
             Task.WaitAll();
 
@@ -276,12 +275,13 @@ namespace Baosight.FDAA.PackageDiagnosis.BLL.Packages
                 if (portIsBindable.Item2) continue;
                 //  存在绑定失败的端口
                 result = true;
-                //  获取绑定失败端口下的所有模块
-                var notBindableUnicastModules = UdpUnicastModules.Where(m => m.Port == portIsBindable.Item1);
-                var notBindableMulticastModules = UdpMulticastModules.Where(m => m.MulticastPort == portIsBindable.Item1);
-                //  所有绑定失败的[模块,端口号]组织好 单播模块
-                foreach (var module in notBindableUnicastModules) modulePort.Add(module.ModuleNo, module.Port);//  所有绑定失败的[模块,端口号]组织好
-                //  所有绑定失败的[模块,端口号]组织好 多播模块
+                //  单播 获取绑定失败端口下的所有模块
+                var notBindableUnicastModules = unicastModules.Where(m => m.Port == portIsBindable.Item1);
+                //  多播 获取绑定失败端口下的所有模块
+                var notBindableMulticastModules = multicastModules.Where(m => m.MulticastPort == portIsBindable.Item1);
+                //  单播 所有绑定失败的[模块,端口号]组织好
+                foreach (var module in notBindableUnicastModules) modulePort.Add(module.ModuleNo, module.Port);
+                //  多播 所有绑定失败的[模块,端口号]组织好
                 foreach (var module in notBindableMulticastModules) modulePort.Add(module.ModuleNo, module.MulticastPort);
             }
 
